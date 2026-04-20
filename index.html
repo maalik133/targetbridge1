@@ -89,6 +89,11 @@
       border-radius: 14px;
       text-decoration: none;
       box-shadow: 0 8px 20px rgba(204,0,0,0.25);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .big-btn:active {
+      transform: scale(0.98);
     }
 
     .fine {
@@ -101,16 +106,53 @@
 
     h2 {
       font-size: 18px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    .faq-item {
+    .faq {
+      display: grid;
+      gap: 10px;
+    }
+
+    details {
       background: #fff;
       border: 1px solid #e3e3e3;
       border-radius: 10px;
-      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    summary {
+      list-style: none;
+      cursor: pointer;
       padding: 14px;
       font-weight: 700;
+      position: relative;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+      color: #cc0000;
+      font-weight: 700;
+    }
+
+    details[open] summary::after {
+      content: "−";
+    }
+
+    .faq-content {
+      padding: 0 14px 14px;
+      color: #666;
+      font-size: 14px;
+      line-height: 1.5;
     }
 
     .footer {
@@ -163,10 +205,35 @@
 
     <h2>Frequently Asked Questions</h2>
 
-    <div class="faq-item">How long do the deals take?</div>
-    <div class="faq-item">What are deals?</div>
-    <div class="faq-item">How many deals do I have to do?</div>
-    <div class="faq-item">When will I receive my reward?</div>
+    <div class="faq">
+      <details>
+        <summary>How long do the deals take?</summary>
+        <div class="faq-content">
+          The time can vary depending on which offers you choose and how quickly you complete each step. Some deals can be finished faster than others.
+        </div>
+      </details>
+
+      <details>
+        <summary>What are deals?</summary>
+        <div class="faq-content">
+          Deals are promotional partner offers that may include surveys, app installs, subscriptions, or service trials that must be completed as part of the process.
+        </div>
+      </details>
+
+      <details>
+        <summary>How many deals do I have to do?</summary>
+        <div class="faq-content">
+          Most users are required to complete between 3 and 5 deals, but the exact number may vary depending on the offer path shown to you.
+        </div>
+      </details>
+
+      <details>
+        <summary>When will I receive my reward?</summary>
+        <div class="faq-content">
+          After all required deals are successfully completed and verified, you can move forward in the process to claim your reward.
+        </div>
+      </details>
+    </div>
 
     <div class="footer">
       <a href="#">User Agreement</a> •
